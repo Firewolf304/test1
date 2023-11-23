@@ -7,7 +7,7 @@
     cd ~
     git clone https://github.com/Firewolf304/test1
     cd test1
-    python3 main.py
+    python3 main.py 
 
 <b align="center">Use</b>
 
