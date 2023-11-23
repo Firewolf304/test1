@@ -5,16 +5,18 @@ import copy
 mass = []
 from src import errors
 
-"""n = int(input("Enter y size: "))
+n = int(input("Enter y size: "))
 m = int(input("Enter x size: "))
 for i in range(n):
     text = list(map(int,input("Enter the numbers : ").strip().split()))[:m]
-    mass.append(text)"""
-n = 2
-m = 4
-mass = [[0,3,1,1],[1,-3,-2,0]]
-format = [3,4,3,0]
-equality = [5,7]
+    mass.append(text)
+format = list(map(int,input("Enter format : ").strip().split()))[:m]
+equality = list(map(int,input("Enter equality : ").strip().split()))[:m]
+#n = 2
+#m = 4
+#mass = [[0,3,1,1],[1,-3,-2,0]]
+#format = [3,4,3,0]
+#equality = [5,7]
 #n = 3
 #m = 6
 #mass = [[1,1,1,0,0,0],[0,2,0,0,1,1],[0,2,1,1,0,0]]
@@ -25,6 +27,11 @@ equality = [5,7]
 #mass = [[0,3,1,1],[1,-3,-2,0]]
 #format = [3,0,3,0]
 #equality = [5,7]
+#n = 2
+#m = 5
+#mass = [[1,2,0,-1,1],[2,1,1,3,0]]
+#format = [-3,-2,-4,-1,-2]
+#equality = [5,5]
 
 based = []
 notbased = []
@@ -127,8 +134,8 @@ def changeBest():
 
 test = 0
 ### ========================================ITERATION========================================
-#while(not(all(map(lambda x: x >= 0, new[-1])))):
-while(test < 2):
+while(not(all(map(lambda x: x >= 0, new[-1][:-1])))):
+#while(test < 2):
     #maximus = max( abs(list(map(lambda a: a <0 , old[-1]))) )
     new = [[ 0 for _ in range(len(itermatrix[0]))] for _ in range(len(itermatrix))]
     maxInd = 0
@@ -150,12 +157,12 @@ while(test < 2):
     for y in range(len(new)):
         for x in range(len(new[y])):
             if(y != bestIndexY and x != bestIndexX):
-                new[y][x] = (old[y][x] * old[bestIndexY][bestIndexX] - old[0][x] * old[y][0] ) / old[bestIndexY][bestIndexX]
+                new[y][x] = (old[y][x] * old[bestIndexY][bestIndexX] - old[bestIndexY][x] * old[y][bestIndexX] ) / old[bestIndexY][bestIndexX]
 
     old = copy.copy(new)
     oldbestIndexX = bestIndexX
     oldbestIndexY = bestIndexY
     print(new)
-    test +=1
+    #test +=1
     pass
 
