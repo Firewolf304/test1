@@ -5,7 +5,7 @@
 <b align="center">Install</b>
 
     cd ~
-    git clone https://github.com/Firewolf304/test1
+    git clone https://github.com/Firewolf304/test1.git
     cd test1
     python3 main.py 
 
