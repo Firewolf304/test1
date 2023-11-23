@@ -12,5 +12,6 @@ format = list(map(int,input("Enter format : ").strip().split()))[:m]
 equality = list(map(int,input("Enter equality : ").strip().split()))[:m]
 matrix = MatrixCnstructor(n,m,mass,format,equality)
 matrix.make_based()
+print("based =", matrix.based, "notbased =", matrix.notbased)
 matrix.makeMatrix()
 matrix.iterator()
