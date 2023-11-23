@@ -1,2 +1,0 @@
-class InputError(Exception):
-    pass
