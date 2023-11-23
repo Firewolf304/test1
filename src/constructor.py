@@ -88,9 +88,7 @@ class MatrixCnstructor:
         value = nig_mass.count(max(nig_mass))
         if (value > 1):  # if some values in the F
             listing: list[dict] = []
-
-            def func(index: int) -> None:
-                global listing
+            def func(index: int) -> dict:
                 bestIndY = 0
                 val = 9999999
                 for i in range(len(self.based)):
@@ -100,13 +98,13 @@ class MatrixCnstructor:
                             bestIndY = i
                     except Exception:
                         pass
-                listing.append(dict({'X': index, 'Y': bestIndY, 'val': val}))
+                return dict({'X': index, 'Y': bestIndY, 'val': val})
 
             # maximus = map( lambda a: a==max(nig_mass) ,  )
             save = 0
             for i in range(value):  # use python methods!
                 save = nig_mass.index(max(nig_mass), save)
-                func(save)
+                listing.append(func(save))
             element = min(listing, key=lambda x: x['val'])
             self.bestIndexX = element['X']
             self.bestIndexX = element['Y']
