@@ -85,7 +85,9 @@ class MatrixCnstructor:
         :return:
         """
         nig_mass = list(map(lambda a: abs(a), [x for x in self.old[-1][:-1] if x < 0]))  # all abs of negative values
-        value = nig_mass.count(max(nig_mass))
+        value = 0
+        if len(nig_mass) > 0:
+            value = nig_mass.count(max(nig_mass))
         if (value > 1):  # if some values in the F
             listing: list[dict] = []
             def func(index: int) -> dict:
@@ -109,7 +111,7 @@ class MatrixCnstructor:
             self.bestIndexX = element['X']
             self.bestIndexX = element['Y']
             pass
-        else:
+        elif value == 1:
             self.bestIndexX = self.old[-1].index(max(nig_mass) * -1)
             val = 9999999
             for i in range(len(self.based)):
@@ -125,10 +127,12 @@ class MatrixCnstructor:
             self.new = [[0 for _ in range(len(self.itermatrix[0]))] for _ in range(len(self.itermatrix))]
             maxInd = 0
             val = 0
-            self.bestIndexX = 0
-            self.bestIndexY = 0
+            self.bestIndexX = -1
+            self.bestIndexY = -1
 
             self.changeBest()
+            if(self.bestIndexX == -1 or self.bestIndexY == -1):
+                break
             self.new[self.bestIndexY][self.bestIndexX] = float(1 / self.old[self.bestIndexY][self.bestIndexX])
 
             # заебали эти вумные методы, я в тупую
