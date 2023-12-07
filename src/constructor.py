@@ -109,7 +109,7 @@ class MatrixCnstructor:
                 listing.append(func(save))
             element = min(listing, key=lambda x: x['val'])
             self.bestIndexX = element['X']
-            self.bestIndexX = element['Y']
+            self.bestIndexY = element['Y']
             pass
         elif value == 1:
             self.bestIndexX = self.old[-1].index(max(nig_mass) * -1)
